@@ -80,11 +80,18 @@ public class SaveManager : MonoBehaviour
                     // Gecersiz plot kontrolu
                     if (p.occupied)
                     {
-                        if (string.IsNullOrWhiteSpace(p.seedId) || p.plantUnix <= 0)
+                        if (string.IsNullOrWhiteSpace(p.seedId))
                         {
-                            Debug.LogWarning($"[SaveManager] Invalid plot found: ({p.x},{p.y}) occupied=true but seedId='{p.seedId}', plantUnix={p.plantUnix}");
+                            Debug.LogWarning($"[SaveManager] Invalid plot found: ({p.x},{p.y}) occupied=true but seedId is empty");
                             p.occupied = false; // Duzelt
                             invalid++;
+                        }
+                        else if (p.plantUnix <= 0)
+                        {
+                            Debug.LogWarning($"[SaveManager] Plot ({p.x},{p.y}) has no plantUnix, using current time");
+                            p.plantUnix = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+                            occupied++;
+                            Debug.Log($"[SaveManager] Valid plot (plantUnix fixed): ({p.x},{p.y}) farm={p.farmIndex} seed={p.seedId}");
                         }
                         else
                         {
@@ -161,10 +168,15 @@ public class SaveManager : MonoBehaviour
                 if (p != null && p.occupied)
                 {
                     // Gecersiz veri varsa duzelt
-                    if (string.IsNullOrWhiteSpace(p.seedId) || p.plantUnix <= 0)
+                    if (string.IsNullOrWhiteSpace(p.seedId))
                     {
-                        Debug.LogWarning($"[SaveManager] Fixing invalid plot before save: ({p.x},{p.y})");
+                        Debug.LogWarning($"[SaveManager] Fixing invalid plot before save (no seedId): ({p.x},{p.y})");
                         p.occupied = false;
+                    }
+                    else if (p.plantUnix <= 0)
+                    {
+                        Debug.LogWarning($"[SaveManager] Plot ({p.x},{p.y}) has no plantUnix before save, using current time");
+                        p.plantUnix = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
                     }
                 }
             }
@@ -232,9 +244,12 @@ public class SaveManager : MonoBehaviour
         {
             foreach (var p in data.plots)
             {
-                if (p != null && p.occupied && (string.IsNullOrWhiteSpace(p.seedId) || p.plantUnix <= 0))
+                if (p != null && p.occupied)
                 {
-                    p.occupied = false;
+                    if (string.IsNullOrWhiteSpace(p.seedId))
+                        p.occupied = false;
+                    else if (p.plantUnix <= 0)
+                        p.plantUnix = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
                 }
             }
         }

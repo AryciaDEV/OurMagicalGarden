@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
@@ -81,7 +82,8 @@ public class PlayerSaveWriter : MonoBehaviour
                         if (ps == null) continue;
 
                         // KRITIK: Gecerli bir plot mu kontrol et
-                        if (!ps.occupied || string.IsNullOrWhiteSpace(ps.seedId) || ps.plantUnix <= 0)
+                        // Sadece seedId yoksa bos say; plantUnix eksikse su anki zamani kullan
+                        if (!ps.occupied || string.IsNullOrWhiteSpace(ps.seedId))
                         {
                             // Bos plot olarak kaydet
                             data.plots.Add(new PlotSaveData
@@ -99,7 +101,7 @@ public class PlayerSaveWriter : MonoBehaviour
                             continue;
                         }
 
-                        // Dolu plot
+                        // Dolu plot - plantUnix eksikse su anki zamani kullan
                         data.plots.Add(new PlotSaveData
                         {
                             farmIndex = myFarm,
@@ -107,7 +109,7 @@ public class PlayerSaveWriter : MonoBehaviour
                             y = y,
                             occupied = true,
                             seedId = ps.seedId,
-                            plantUnix = ps.plantUnix,
+                            plantUnix = ps.plantUnix > 0 ? ps.plantUnix : DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
                             growSeconds = ps.growSeconds,
                             weight = ps.weight,
                             version = ps.version
@@ -270,14 +272,15 @@ public class PlayerSaveWriter : MonoBehaviour
                     }
 
                     // Her durumda kaydet - bos plotlar da dahil
+                    // occupied degeri oldugu gibi saklanir; plantUnix eksikse su anki zaman kullanilir
                     data.plots.Add(new PlotSaveData
                     {
                         farmIndex = myFarm,
                         x = x,
                         y = y,
-                        occupied = ps.occupied && !string.IsNullOrWhiteSpace(ps.seedId) && ps.plantUnix > 0,
+                        occupied = ps.occupied,
                         seedId = ps.seedId ?? "",
-                        plantUnix = ps.plantUnix,
+                        plantUnix = (ps.occupied && ps.plantUnix <= 0) ? DateTimeOffset.UtcNow.ToUnixTimeSeconds() : ps.plantUnix,
                         growSeconds = ps.growSeconds,
                         weight = ps.weight,
                         version = ps.version
