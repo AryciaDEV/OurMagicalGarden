@@ -222,7 +222,7 @@ public class FarmNetwork : MonoBehaviourPunCallbacks
 
     private bool TryConsumeSeedLocal(string seedId, int amount)
     {
-        if (PlayerSeedBag.Local == null) return true;
+        if (PlayerSeedBag.Local == null) return false;
         return PlayerSeedBag.Local.TrySpendSeed(seedId, amount);
     }
 
@@ -273,6 +273,13 @@ public class FarmNetwork : MonoBehaviourPunCallbacks
 
         if (wantsPlant)
         {
+            if (string.IsNullOrWhiteSpace(seedIdIfPlant))
+            {
+                Debug.LogWarning("[FarmNetwork] Plant rejected: seedIdIfPlant is null or empty (invalid plant request).");
+                _localPendingUntil.Remove(key);
+                return;
+            }
+
             if (!TryConsumeSeedLocal(seedIdIfPlant, plantSeedCost))
             {
                 Debug.Log("[FarmNetwork] No seeds!");

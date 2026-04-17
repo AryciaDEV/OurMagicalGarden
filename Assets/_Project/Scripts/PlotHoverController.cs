@@ -141,11 +141,11 @@ public class PlotHoverController : MonoBehaviourPun
             ui.infoText.text = "Ready to Harvest!";
             SetupActionButton("Harvest", () =>
             {
-                TryInteract(planted);
+                TryInteract("");
             });
 
             if (Input.GetKeyDown(KeyCode.E))
-                TryInteract(planted);
+                TryInteract("");
         }
         else
         {
