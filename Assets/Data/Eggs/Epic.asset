@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af37bf10fae5b7418dd8c17176dd5c7, type: 3}
+  m_Name: Epic
+  m_EditorClassIdentifier: 
+  eggId: Epic
+  icon: {fileID: 21300000, guid: 8aa608c19bc752f4fbaf1390329084c9, type: 3}
+  rarity: 3
+  price: 100000000
+  minQty: 1
+  maxQty: 5
+  drops:
+  - pet: {fileID: 11400000, guid: e7ca97aaa1e4e9e4f82481aac9a1ac96, type: 2}
+    weight: 60
+  - pet: {fileID: 11400000, guid: 96fed24febdaf80439eaf78168701608, type: 2}
+    weight: 35
+  - pet: {fileID: 11400000, guid: 58b6b19074a71df4aa7ffefa6a027ed5, type: 2}
+    weight: 5

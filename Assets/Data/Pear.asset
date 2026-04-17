@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb56a770ebec8b42a33d1d1b73f2dc8, type: 3}
+  m_Name: Pear
+  m_EditorClassIdentifier: 
+  seedId: Pear
+  icon: {fileID: 21300000, guid: e42814bd352f7204c8986c9e64a1b8ae, type: 3}
+  seedPrice: 20000
+  rarity: 2
+  sellPrice: 286514
+  growSeconds: 64800
+  minWeight: 1
+  maxWeight: 3
+  maxLift: 5
+  appearWeight: 1
+  stage0Prefab: {fileID: 5172620705534389449, guid: a148daab976f3424ca6dc96e07cf60df, type: 3}
+  stage1Prefab: {fileID: 5172620705534389449, guid: a148daab976f3424ca6dc96e07cf60df, type: 3}
+  stage2Prefab: {fileID: 5172620705534389449, guid: a148daab976f3424ca6dc96e07cf60df, type: 3}
+  localOffset: {x: 0, y: 0, z: 0}
+  localScale: {x: 1, y: 1, z: 1}

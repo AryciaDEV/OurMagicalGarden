@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb56a770ebec8b42a33d1d1b73f2dc8, type: 3}
+  m_Name: Ginger
+  m_EditorClassIdentifier: 
+  seedId: Ginger
+  icon: {fileID: 21300000, guid: bf5cc23bc8d09854a9f72159b9769083, type: 3}
+  seedPrice: 1200000
+  rarity: 6
+  sellPrice: 23401599
+  growSeconds: 259200
+  minWeight: 1
+  maxWeight: 3
+  maxLift: 5
+  appearWeight: 1
+  stage0Prefab: {fileID: 6227773543961421791, guid: a5f5ac627f48f7847be730efd4cde6c6, type: 3}
+  stage1Prefab: {fileID: 6227773543961421791, guid: a5f5ac627f48f7847be730efd4cde6c6, type: 3}
+  stage2Prefab: {fileID: 6227773543961421791, guid: a5f5ac627f48f7847be730efd4cde6c6, type: 3}
+  localOffset: {x: 0, y: 0, z: 0}
+  localScale: {x: 1, y: 1, z: 1}

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb56a770ebec8b42a33d1d1b73f2dc8, type: 3}
+  m_Name: Cauliflower
+  m_EditorClassIdentifier: 
+  seedId: Cauliflower
+  icon: {fileID: 21300000, guid: 69cbc79753deb6149a8237c486c69da4, type: 3}
+  seedPrice: 15000
+  rarity: 2
+  sellPrice: 195442
+  growSeconds: 57600
+  minWeight: 1
+  maxWeight: 3
+  maxLift: 5
+  appearWeight: 1
+  stage0Prefab: {fileID: 8582378275963469735, guid: 86623f2290216e448b4978c448abf72e, type: 3}
+  stage1Prefab: {fileID: 8582378275963469735, guid: 86623f2290216e448b4978c448abf72e, type: 3}
+  stage2Prefab: {fileID: 8582378275963469735, guid: 86623f2290216e448b4978c448abf72e, type: 3}
+  localOffset: {x: 0, y: 0, z: 0}
+  localScale: {x: 1, y: 1, z: 1}

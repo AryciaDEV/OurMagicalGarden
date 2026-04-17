@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb56a770ebec8b42a33d1d1b73f2dc8, type: 3}
+  m_Name: Grape
+  m_EditorClassIdentifier: 
+  seedId: Grape
+  icon: {fileID: 21300000, guid: 414294a225ba90a47930686d6c69769e, type: 3}
+  seedPrice: 700000
+  rarity: 5
+  sellPrice: 13651287
+  growSeconds: 187200
+  minWeight: 1
+  maxWeight: 3
+  maxLift: 5
+  appearWeight: 1
+  stage0Prefab: {fileID: 1871926172374626207, guid: 1245f6bf5295699429c771072f3e8505, type: 3}
+  stage1Prefab: {fileID: 1871926172374626207, guid: 1245f6bf5295699429c771072f3e8505, type: 3}
+  stage2Prefab: {fileID: 1871926172374626207, guid: 1245f6bf5295699429c771072f3e8505, type: 3}
+  localOffset: {x: 0, y: 0, z: 0}
+  localScale: {x: 1, y: 1, z: 1}
