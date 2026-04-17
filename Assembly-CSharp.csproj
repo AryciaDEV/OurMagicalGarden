@@ -164,6 +164,7 @@
     <Compile Include="Assets\_Project\Scripts\PlayerAnimDriver.cs" />
     <Compile Include="Assets\_Project\Scripts\PlotHoverController.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Demo Chat\Code\Utilities\TextButtonTransition.cs" />
+    <Compile Include="Assets\_Project\Scripts\FarmPersistenceHelper.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\_Project\Scripts\PlayerSaveWriter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
@@ -201,7 +202,6 @@
     <Compile Include="Assets\_Project\Scripts\PetNetworkService.cs" />
     <Compile Include="Assets\_Project\Scripts\Auth\PlayFabLeaderboardService.cs" />
     <Compile Include="Assets\_Project\Scripts\PetMarketUI.cs" />
-    <Compile Include="Assets\_Project\Scripts\FarmPersistenceHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
