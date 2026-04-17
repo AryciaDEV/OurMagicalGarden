@@ -423,11 +423,18 @@ public class FarmNetwork : MonoBehaviourPunCallbacks
 
         if (!ps.occupied)
         {
+            if (string.IsNullOrWhiteSpace(seedIdIfPlant))
+            {
+                Debug.LogWarning("[FarmNetwork] RPC: Plant rejected: seedIdIfPlant is null or empty.");
+                photonView.RPC(nameof(RPC_InteractRejected), info.Sender, farmIndex, x, y, "EmptySeedId");
+                return;
+            }
+
             long now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             float growSeconds = defaultGrowSeconds;
             float weight = 1f;
 
-            string normalizedSeedId = string.IsNullOrWhiteSpace(seedIdIfPlant) ? "Carrot" : seedIdIfPlant.Trim();
+            string normalizedSeedId = seedIdIfPlant.Trim();
 
             if (_seedById != null && _seedById.TryGetValue(normalizedSeedId, out var def) && def != null)
             {
