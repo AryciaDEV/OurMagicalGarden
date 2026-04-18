@@ -53,14 +53,22 @@ public class PlantVisualSystem : MonoBehaviour
 
     private void OnEnable()
     {
+        if (farmNetwork == null) farmNetwork = FindFirstObjectByType<FarmNetwork>();
+
         if (farmNetwork != null)
+        {
             farmNetwork.OnPlotStateChanged += OnPlotChanged;
+            farmNetwork.OnFullStateRefreshed += RefreshAll;
+        }
     }
 
     private void OnDisable()
     {
         if (farmNetwork != null)
+        {
             farmNetwork.OnPlotStateChanged -= OnPlotChanged;
+            farmNetwork.OnFullStateRefreshed -= RefreshAll;
+        }
     }
 
     private void Start()

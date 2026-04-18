@@ -781,8 +781,10 @@ public class FarmNetwork : MonoBehaviourPunCallbacks
             return;
         }
 
-        // Eger su anki plot bize aitse ve yeni gelen baskasina aitse, ignore et (race condition)
-        if (ps.occupied && ps.ownerActor == PhotonNetwork.LocalPlayer.ActorNumber && ownerActor != ps.ownerActor)
+        // Only block hostile takeovers where another player's occupied update would overwrite our occupied plot.
+        // Clear RPCs (occupied=false, e.g. after harvest) must always be accepted; otherwise the local
+        // player's plot visual will never clear after harvesting their own crops.
+        if (occupied && ps.occupied && ps.ownerActor == PhotonNetwork.LocalPlayer.ActorNumber && ownerActor != ps.ownerActor)
         {
             Debug.LogWarning($"[FarmNetwork] Ignoring plot update that would steal our plot!");
             return;
