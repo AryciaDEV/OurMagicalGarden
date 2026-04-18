@@ -494,6 +494,19 @@ public class PetNetworkService : MonoBehaviourPunCallbacks
         p.SetCustomProperties(new Hashtable { { P_COINS, newCoins } });
     }
 
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        if (!PhotonNetwork.IsMasterClient) return;
+        if (otherPlayer == null) return;
+
+        int actor = otherPlayer.ActorNumber;
+        _inv.Remove(actor);
+        _equippedUid.Remove(actor);
+        _nextUid.Remove(actor);
+
+        Debug.Log($"[PetNetworkService] Cleaned up pet data for actor={actor} who left the room.");
+    }
+
     public static string GetEquippedPetIdFromPlayer(Player p)
     {
         if (p?.CustomProperties == null) return "";
