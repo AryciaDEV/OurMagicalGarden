@@ -23,8 +23,10 @@ public class PetMarketRotationService : MonoBehaviourPunCallbacks
     public int RotationSeconds => rotationSeconds;
 
     public event Action<string> OnMarketPackedUpdated;
+    public event Action OnMarketRotated;
 
     private Dictionary<string, EggDefinition> _eggById;
+    private string _lastKnownPacked;
 
     private void Awake()
     {
@@ -40,6 +42,11 @@ public class PetMarketRotationService : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.InRoom && PhotonNetwork.IsMasterClient)
             EnsureMarketFresh(force: true);
+
+        // Seed _lastKnownPacked from existing room props so the first rotation is detected correctly
+        string existing = GetCurrentPacked();
+        if (!string.IsNullOrEmpty(existing))
+            _lastKnownPacked = existing;
     }
 
     private void Update()
@@ -150,7 +157,15 @@ public class PetMarketRotationService : MonoBehaviourPunCallbacks
         if (propertiesThatChanged.TryGetValue(PROP_PET_MARKET, out object packedObj))
         {
             string packed = packedObj as string ?? "";
+
+            bool wasSet = !string.IsNullOrEmpty(_lastKnownPacked);
+            bool changed = packed != _lastKnownPacked;
+            _lastKnownPacked = packed;
+
             OnMarketPackedUpdated?.Invoke(packed);
+
+            if (wasSet && changed && !string.IsNullOrEmpty(packed))
+                OnMarketRotated?.Invoke();
         }
 
         if (propertiesThatChanged.TryGetValue(PROP_PET_MARKET_TS, out object tsObj))
