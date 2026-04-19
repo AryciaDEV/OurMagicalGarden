@@ -242,9 +242,9 @@ public class FarmRestoreCoordinator : MonoBehaviourPunCallbacks
 
         // Pets
         var petService = PetNetworkService.Instance;
-        if (petService != null && save.pets != null)
+        if (petService != null)
         {
-            petService.RequestRestoreFromSaveForLocal(save.pets, save.equippedPetUid);
+            petService.RequestRestoreFromSaveForLocal(save.pets ?? new System.Collections.Generic.List<PetSaveData>(), save.equippedPetUid);
             Debug.Log("[FarmRestoreCoordinator] Pets restore requested");
         }
 

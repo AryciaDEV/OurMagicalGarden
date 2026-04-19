@@ -108,6 +108,9 @@ public class SaveManager : MonoBehaviour
                 CurrentSave.plots = new List<PlotSaveData>();
             }
 
+            if (CurrentSave.pets == null)
+                CurrentSave.pets = new List<PetSaveData>();
+
             OnSaveLoaded?.Invoke(CurrentSave);
         },
         error =>
@@ -294,7 +297,8 @@ public class SaveManager : MonoBehaviour
             username = AuthSession.Username,
             isGuest = AuthSession.IsGuest,
             coins = 100,
-            plots = new List<PlotSaveData>() // Bos liste ile baslat
+            plots = new List<PlotSaveData>(),
+            pets = new List<PetSaveData>()
         };
     }
 }

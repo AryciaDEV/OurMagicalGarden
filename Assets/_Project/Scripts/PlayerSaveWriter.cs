@@ -118,7 +118,9 @@ public class PlayerSaveWriter : MonoBehaviour
                 }
             }
 
-            Debug.Log($"[PlayerSaveWriter] Emergency save: {data.plots.Count} plots, coins={data.coins}");
+            PopulatePets(data);
+
+            Debug.Log($"[PlayerSaveWriter] Emergency save: {data.plots.Count} plots, {data.pets.Count} pets, coins={data.coins}");
 
             // Senkron save dene
             SaveManager.Instance.ForceSynchronousSave(data);
@@ -309,10 +311,37 @@ public class PlayerSaveWriter : MonoBehaviour
             }
         }
 
+        PopulatePets(data);
+        Debug.Log($"[PlayerSaveWriter] Saving {data.pets.Count} pets, equippedPetUid={data.equippedPetUid}");
+
         SaveManager.Instance.SaveNow(data);
         _isDirty = false;
         _lastSaveTime = Time.time;
         Debug.Log("[PlayerSaveWriter] SaveCurrentState queued.");
+    }
+
+    private static void PopulatePets(PlayerSaveData data)
+    {
+        var petInventory = PlayerPetInventory.Local;
+        if (petInventory != null)
+        {
+            data.pets.Clear();
+            foreach (var pet in petInventory.GetAll())
+            {
+                data.pets.Add(new PetSaveData
+                {
+                    uid = pet.uid,
+                    petId = pet.petId,
+                    eggId = pet.eggId
+                });
+            }
+            data.equippedPetUid = petInventory.EquippedUid;
+        }
+        else if (SaveManager.Instance?.CurrentSave != null)
+        {
+            data.pets = SaveManager.Instance.CurrentSave.pets ?? new System.Collections.Generic.List<PetSaveData>();
+            data.equippedPetUid = SaveManager.Instance.CurrentSave.equippedPetUid;
+        }
     }
 
     private void OnApplicationQuit()
