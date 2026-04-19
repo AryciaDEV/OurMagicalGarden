@@ -19,12 +19,14 @@ public class MarketRotationService : MonoBehaviourPunCallbacks
     private const string PROP_MARKET = "market";
     private const string PROP_MARKET_TS = "marketTs";
 
-    [SerializeField] private List<SeedDefinition> allSeeds;     // Market sýrasý buradan gelecek
+    [SerializeField] private List<SeedDefinition> allSeeds;     // Market sï¿½rasï¿½ buradan gelecek
     [SerializeField] private int rotationSeconds = 300;         // 5 dk
 
     public event Action<string> OnMarketPackedUpdated;
+    public event Action OnMarketRotated;
 
     private long _lastMarketTs;
+    private string _lastKnownPacked;
     public long LastMarketTs => _lastMarketTs;
     public int RotationSeconds => rotationSeconds;
 
@@ -33,7 +35,7 @@ public class MarketRotationService : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
             EnsureMarketInitialized();
 
-        // Odaya sonradan girenler için: mevcut props'u uygula
+        // Odaya sonradan girenler iï¿½in: mevcut props'u uygula
         ApplyMarketFromRoomProps();
     }
 
@@ -55,7 +57,7 @@ public class MarketRotationService : MonoBehaviourPunCallbacks
     public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
     {
         if (propertiesThatChanged.ContainsKey(PROP_MARKET) || propertiesThatChanged.ContainsKey(PROP_MARKET_TS))
-            ApplyMarketFromRoomProps();
+            ApplyMarketFromRoomProps(fromRotation: true);
     }
 
     public string GetCurrentPacked()
@@ -90,11 +92,11 @@ public class MarketRotationService : MonoBehaviourPunCallbacks
 
     public void ForceRefreshCurrentMarket()
     {
-        ApplyMarketFromRoomProps();
+        ApplyMarketFromRoomProps(fromRotation: false);
     }
 
-    // Sýra: allSeeds list sýrasý
-    // Qty: 0..20, rarity arttýkça 0 gelme olasýlýðý artar
+    // Sï¿½ra: allSeeds list sï¿½rasï¿½
+    // Qty: 0..20, rarity arttï¿½kï¿½a 0 gelme olasï¿½lï¿½ï¿½ï¿½ artar
     private List<MarketItem> GenerateRotation(long seed)
     {
         var rng = new System.Random((int)(seed % int.MaxValue));
@@ -104,7 +106,7 @@ public class MarketRotationService : MonoBehaviourPunCallbacks
         {
             if (def == null || string.IsNullOrWhiteSpace(def.seedId)) continue;
 
-            // 0 gelme olasýlýðý (rarity yükseldikçe artar)
+            // 0 gelme olasï¿½lï¿½ï¿½ï¿½ (rarity yï¿½kseldikï¿½e artar)
             float zeroChance = def.rarity switch
             {
                 Rarity.Common => 0.05f,
@@ -119,7 +121,7 @@ public class MarketRotationService : MonoBehaviourPunCallbacks
             if (rng.NextDouble() < zeroChance) qty = 0;
             else qty = rng.Next(0, 21); // 0..20 (0 dahil)
 
-            // FÝYAT: SeedDefinition satýn alma fiyatý
+            // Fï¿½YAT: SeedDefinition satï¿½n alma fiyatï¿½
             int price = Mathf.Max(1, def.seedPrice);
 
             result.Add(new MarketItem { seedId = def.seedId, qty = qty, buyPrice = price });
@@ -140,7 +142,7 @@ public class MarketRotationService : MonoBehaviourPunCallbacks
         return false;
     }
 
-    private void ApplyMarketFromRoomProps()
+    private void ApplyMarketFromRoomProps(bool fromRotation = false)
     {
         if (!PhotonNetwork.InRoom) return;
         if (!PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey(PROP_MARKET)) return;
@@ -151,7 +153,14 @@ public class MarketRotationService : MonoBehaviourPunCallbacks
         string packed = (string)PhotonNetwork.CurrentRoom.CustomProperties[PROP_MARKET];
         Debug.Log($"Market updated: {packed} (ts={_lastMarketTs})");
 
+        bool wasSet = !string.IsNullOrEmpty(_lastKnownPacked);
+        bool changed = packed != _lastKnownPacked;
+        _lastKnownPacked = packed;
+
         OnMarketPackedUpdated?.Invoke(packed);
+
+        if (fromRotation && wasSet && changed && !string.IsNullOrEmpty(packed))
+            OnMarketRotated?.Invoke();
     }
 
     // seedId|qty|price;seedId|qty|price
