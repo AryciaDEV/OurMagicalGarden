@@ -56,6 +56,6 @@ public class PetHatchedPopup : MonoBehaviour
         if (root != null)
             root.SetActive(false);
         else
-            gameObject.SetActive(false);
+            Debug.LogWarning("[PetHatchedPopup] root is not assigned; popup cannot be hidden.");
     }
 }
