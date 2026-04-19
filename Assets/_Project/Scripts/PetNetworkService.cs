@@ -134,7 +134,7 @@ public class PetNetworkService : MonoBehaviourPunCallbacks
                 }
             }
 
-            if (equippedUid > 0)
+            if (equippedUid > 0 && PlayerPetInventory.Local.GetByUid(equippedUid) != null)
                 PlayerPetInventory.Local.LocalSetEquipped(equippedUid);
         }
 
