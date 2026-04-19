@@ -3,11 +3,23 @@
   "WorkspaceRootPath": "C:\\Users\\sarge\\OneDrive\\Belgeler\\GitHub\\OurMagicalGarden\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A6AF6A47-EF9A-8E77-0B1D-EB970EB5BF45}|Assembly-CSharp.csproj|C:\\Users\\sarge\\OneDrive\\Belgeler\\GitHub\\OurMagicalGarden\\assets\\_project\\scripts\\playersavewriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4B4034FA-4E6D-DA03-603A-06C37BFAAC58}|PhotonRealtime.csproj|c:\\users\\sarge\\onedrive\\belgeler\\github\\ourmagicalgarden\\assets\\photon\\photonrealtime\\code\\connectionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B4034FA-4E6D-DA03-603A-06C37BFAAC58}|PhotonRealtime.csproj|solutionrelative:assets\\photon\\photonrealtime\\code\\connectionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A1033F4-56F3-CC93-28CE-0951AF3FD10F}|PhotonUnityNetworking.csproj|c:\\users\\sarge\\onedrive\\belgeler\\github\\ourmagicalgarden\\assets\\photon\\photonunitynetworking\\code\\photonnetwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A1033F4-56F3-CC93-28CE-0951AF3FD10F}|PhotonUnityNetworking.csproj|solutionrelative:assets\\photon\\photonunitynetworking\\code\\photonnetwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6AF6A47-EF9A-8E77-0B1D-EB970EB5BF45}|Assembly-CSharp.csproj|c:\\users\\sarge\\onedrive\\belgeler\\github\\ourmagicalgarden\\assets\\_project\\scripts\\disconnectpanelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6AF6A47-EF9A-8E77-0B1D-EB970EB5BF45}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\disconnectpanelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6AF6A47-EF9A-8E77-0B1D-EB970EB5BF45}|Assembly-CSharp.csproj|c:\\users\\sarge\\onedrive\\belgeler\\github\\ourmagicalgarden\\assets\\_project\\scripts\\playersavewriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A6AF6A47-EF9A-8E77-0B1D-EB970EB5BF45}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\playersavewriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A6AF6A47-EF9A-8E77-0B1D-EB970EB5BF45}|Assembly-CSharp.csproj|c:\\users\\sarge\\onedrive\\belgeler\\github\\ourmagicalgarden\\assets\\_project\\scripts\\auth\\savemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A6AF6A47-EF9A-8E77-0B1D-EB970EB5BF45}|Assembly-CSharp.csproj|C:\\Users\\sarge\\OneDrive\\Belgeler\\GitHub\\OurMagicalGarden\\assets\\_project\\scripts\\auth\\savemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A6AF6A47-EF9A-8E77-0B1D-EB970EB5BF45}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\auth\\savemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -46,11 +58,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "ConnectionHandler.cs",
+              "DocumentMoniker": "C:\\Users\\sarge\\OneDrive\\Belgeler\\GitHub\\OurMagicalGarden\\Assets\\Photon\\PhotonRealtime\\Code\\ConnectionHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Photon\\PhotonRealtime\\Code\\ConnectionHandler.cs",
+              "ToolTip": "C:\\Users\\sarge\\OneDrive\\Belgeler\\GitHub\\OurMagicalGarden\\Assets\\Photon\\PhotonRealtime\\Code\\ConnectionHandler.cs",
+              "RelativeToolTip": "Assets\\Photon\\PhotonRealtime\\Code\\ConnectionHandler.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAIwDAAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T14:14:54.409Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PhotonNetwork.cs",
+              "DocumentMoniker": "C:\\Users\\sarge\\OneDrive\\Belgeler\\GitHub\\OurMagicalGarden\\Assets\\Photon\\PhotonUnityNetworking\\Code\\PhotonNetwork.cs",
+              "RelativeDocumentMoniker": "Assets\\Photon\\PhotonUnityNetworking\\Code\\PhotonNetwork.cs",
+              "ToolTip": "C:\\Users\\sarge\\OneDrive\\Belgeler\\GitHub\\OurMagicalGarden\\Assets\\Photon\\PhotonUnityNetworking\\Code\\PhotonNetwork.cs",
+              "RelativeToolTip": "Assets\\Photon\\PhotonUnityNetworking\\Code\\PhotonNetwork.cs",
+              "ViewState": "AQIAAPQCAAAAAAAAAAAcwA4DAABzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T14:13:44.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DisconnectPanelController.cs",
+              "DocumentMoniker": "C:\\Users\\sarge\\OneDrive\\Belgeler\\GitHub\\OurMagicalGarden\\Assets\\_Project\\Scripts\\DisconnectPanelController.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\DisconnectPanelController.cs",
+              "ToolTip": "C:\\Users\\sarge\\OneDrive\\Belgeler\\GitHub\\OurMagicalGarden\\Assets\\_Project\\Scripts\\DisconnectPanelController.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\DisconnectPanelController.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAADIAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T14:12:54.728Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "FarmAuth.cs",
               "DocumentMoniker": "C:\\Users\\sarge\\OneDrive\\Belgeler\\GitHub\\OurMagicalGarden\\Assets\\_Project\\Scripts\\FarmAuth.cs",
               "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\FarmAuth.cs",
@@ -62,7 +113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "SaveManager.cs",
               "DocumentMoniker": "C:\\Users\\sarge\\OneDrive\\Belgeler\\GitHub\\OurMagicalGarden\\Assets\\_Project\\Scripts\\Auth\\SaveManager.cs",
               "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Auth\\SaveManager.cs",
@@ -70,25 +121,24 @@
               "RelativeToolTip": "Assets\\_Project\\Scripts\\Auth\\SaveManager.cs",
               "ViewState": "AQIAAPoAAAAAAAAAAAAQwCIBAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T13:35:36.344Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-16T13:35:36.344Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "PlayerSaveWriter.cs",
               "DocumentMoniker": "C:\\Users\\sarge\\OneDrive\\Belgeler\\GitHub\\OurMagicalGarden\\Assets\\_Project\\Scripts\\PlayerSaveWriter.cs",
               "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\PlayerSaveWriter.cs",
               "ToolTip": "C:\\Users\\sarge\\OneDrive\\Belgeler\\GitHub\\OurMagicalGarden\\Assets\\_Project\\Scripts\\PlayerSaveWriter.cs",
               "RelativeToolTip": "Assets\\_Project\\Scripts\\PlayerSaveWriter.cs",
-              "ViewState": "AQIAAL0AAAAAAAAAAAAAAOUAAAAAAAAA",
+              "ViewState": "AQIAALoAAAAAAAAAAIBJwOUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-16T13:27:34.242Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "FarmNetwork.cs",
               "DocumentMoniker": "C:\\Users\\sarge\\OneDrive\\Belgeler\\GitHub\\OurMagicalGarden\\Assets\\_Project\\Scripts\\FarmNetwork.cs",
               "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\FarmNetwork.cs",
@@ -100,7 +150,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "FarmRestoreCoordinator.cs",
               "DocumentMoniker": "C:\\Users\\sarge\\OneDrive\\Belgeler\\GitHub\\OurMagicalGarden\\Assets\\_Project\\Scripts\\FarmRestoreCoordinator.cs",
               "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\FarmRestoreCoordinator.cs",
@@ -112,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "NetworkBootstrap.cs",
               "DocumentMoniker": "C:\\Users\\sarge\\OneDrive\\Belgeler\\GitHub\\OurMagicalGarden\\Assets\\_Project\\Scripts\\NetworkBootstrap.cs",
               "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\NetworkBootstrap.cs",
@@ -124,7 +174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "PlayFabSessionValidator.cs",
               "DocumentMoniker": "C:\\Users\\sarge\\OneDrive\\Belgeler\\GitHub\\OurMagicalGarden\\Assets\\_Project\\Scripts\\Auth\\PlayFabSessionValidator.cs",
               "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Auth\\PlayFabSessionValidator.cs",
@@ -136,7 +186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "FarmPersistenceHelper.cs",
               "DocumentMoniker": "C:\\Users\\sarge\\OneDrive\\Belgeler\\GitHub\\OurMagicalGarden\\Assets\\_Project\\Scripts\\FarmPersistenceHelper.cs",
               "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\FarmPersistenceHelper.cs",
@@ -148,7 +198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "FarmAssignmentService.cs",
               "DocumentMoniker": "C:\\Users\\sarge\\OneDrive\\Belgeler\\GitHub\\OurMagicalGarden\\Assets\\_Project\\Scripts\\FarmAssignmentService.cs",
               "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\FarmAssignmentService.cs",

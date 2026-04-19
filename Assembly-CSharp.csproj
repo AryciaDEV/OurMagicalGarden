@@ -202,6 +202,7 @@
     <Compile Include="Assets\_Project\Scripts\PetNetworkService.cs" />
     <Compile Include="Assets\_Project\Scripts\Auth\PlayFabLeaderboardService.cs" />
     <Compile Include="Assets\_Project\Scripts\PetMarketUI.cs" />
+    <Compile Include="Assets\_Project\Scripts\PetHatchedPopup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
