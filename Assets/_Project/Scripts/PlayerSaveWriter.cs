@@ -42,6 +42,9 @@ public class PlayerSaveWriter : MonoBehaviour
         if (PlayerInventory.Local != null)
             PlayerInventory.Local.OnChanged -= QueueSave;
 
+        if (PlayerPetInventory.Local != null)
+            PlayerPetInventory.Local.OnChanged -= QueueSave;
+
         var farm = FindFirstObjectByType<FarmNetwork>();
         if (farm != null)
         {
@@ -118,7 +121,10 @@ public class PlayerSaveWriter : MonoBehaviour
                 }
             }
 
-            Debug.Log($"[PlayerSaveWriter] Emergency save: {data.plots.Count} plots, coins={data.coins}");
+            // Pet save - emergency path
+            ApplyPetSaveData(data);
+
+            Debug.Log($"[PlayerSaveWriter] Emergency save: {data.plots.Count} plots, {data.pets.Count} pets, coins={data.coins}");
 
             // Senkron save dene
             SaveManager.Instance.ForceSynchronousSave(data);
@@ -149,6 +155,9 @@ public class PlayerSaveWriter : MonoBehaviour
 
         if (PlayerInventory.Local != null)
             PlayerInventory.Local.OnChanged += QueueSave;
+
+        if (PlayerPetInventory.Local != null)
+            PlayerPetInventory.Local.OnChanged += QueueSave;
 
         if (farm != null)
         {
@@ -309,6 +318,9 @@ public class PlayerSaveWriter : MonoBehaviour
             }
         }
 
+        // Pet save
+        ApplyPetSaveData(data);
+
         SaveManager.Instance.SaveNow(data);
         _isDirty = false;
         _lastSaveTime = Time.time;
@@ -332,6 +344,38 @@ public class PlayerSaveWriter : MonoBehaviour
             Debug.Log("[PlayerSaveWriter] OnApplicationPause - forcing save");
             SaveCurrentState();
             SaveManager.Instance.FlushNow();
+        }
+    }
+
+    private void ApplyPetSaveData(PlayerSaveData data)
+    {
+        if (data.pets == null)
+            data.pets = new List<PetSaveData>();
+
+        var petInv = PlayerPetInventory.Local;
+        if (petInv != null)
+        {
+            data.pets.Clear();
+            foreach (var p in petInv.GetAll())
+            {
+                data.pets.Add(new PetSaveData
+                {
+                    uid = p.uid,
+                    petId = p.petId ?? "",
+                    eggId = p.eggId ?? ""
+                });
+            }
+            data.equippedPetUid = petInv.EquippedUid;
+        }
+        else
+        {
+            var cur = SaveManager.Instance?.CurrentSave;
+            if (cur != null)
+            {
+                if (cur.pets != null)
+                    data.pets = new List<PetSaveData>(cur.pets);
+                data.equippedPetUid = cur.equippedPetUid;
+            }
         }
     }
 }
