@@ -26,6 +26,7 @@ public class PetNetworkService : MonoBehaviourPunCallbacks
 
     public event Action OnLocalInventoryChanged;
     public event Action OnLocalEquippedChanged;
+    public event Action<string> OnLocalPetHatched;
 
     public AudioClip myAudioClip;
 
@@ -319,6 +320,7 @@ public class PetNetworkService : MonoBehaviourPunCallbacks
         });
 
         OnLocalInventoryChanged?.Invoke();
+        OnLocalPetHatched?.Invoke(petId);
     }
 
     [PunRPC]
