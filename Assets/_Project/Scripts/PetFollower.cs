@@ -10,7 +10,7 @@ public class PetFollower : MonoBehaviourPunCallbacks
     public float rotateLerp = 10f;
 
     [Header("Optional anchor")]
-    public Transform followAnchor; // boþsa transform kullanýr
+    public Transform followAnchor; // boï¿½sa transform kullanï¿½r
 
     private GameObject _spawned;
     private string _currentPetId = "";
@@ -19,7 +19,7 @@ public class PetFollower : MonoBehaviourPunCallbacks
     {
         if (!followAnchor) followAnchor = transform;
 
-        // local için baþlangýç
+        // local iï¿½in baï¿½langï¿½ï¿½
         if (photonView.IsMine)
             RefreshFromLocalInventory();
         else
@@ -35,7 +35,7 @@ public class PetFollower : MonoBehaviourPunCallbacks
 
         _spawned.transform.position = Vector3.Lerp(_spawned.transform.position, targetPos, Time.deltaTime * followLerp);
 
-        // owner'ýn forward yönüne göre dönsün
+        // owner'ï¿½n forward yï¿½nï¿½ne gï¿½re dï¿½nsï¿½n
         Quaternion targetRot = Quaternion.LookRotation(a.forward, Vector3.up);
         _spawned.transform.rotation = Quaternion.Slerp(_spawned.transform.rotation, targetRot, Time.deltaTime * rotateLerp);
     }
@@ -49,7 +49,7 @@ public class PetFollower : MonoBehaviourPunCallbacks
             RefreshFromPlayerProps(targetPlayer);
     }
 
-    // Local inventory equip deðiþince çaðýr
+    // Local inventory equip deï¿½iï¿½ince ï¿½aï¿½ï¿½r
     public void RefreshFromLocalInventory()
     {
         if (!photonView.IsMine) return;
@@ -67,6 +67,15 @@ public class PetFollower : MonoBehaviourPunCallbacks
     {
         string petId = PetNetworkService.GetEquippedPetIdFromPlayer(owner);
         SetPet(petId);
+    }
+
+    private void OnDestroy()
+    {
+        if (_spawned != null)
+        {
+            Destroy(_spawned);
+            _spawned = null;
+        }
     }
 
     private void SetPet(string petId)
@@ -94,7 +103,7 @@ public class PetFollower : MonoBehaviourPunCallbacks
         _spawned = Instantiate(def.prefab);
         _spawned.name = $"PetFollower_{petId}_{(photonView.Owner != null ? photonView.Owner.ActorNumber : 0)}";
 
-        // anýnda doðru pozisyona koy
+        // anï¿½nda doï¿½ru pozisyona koy
         Transform a = followAnchor ? followAnchor : transform;
         _spawned.transform.position = a.TransformPoint(localOffset);
         _spawned.transform.rotation = Quaternion.LookRotation(a.forward, Vector3.up);
